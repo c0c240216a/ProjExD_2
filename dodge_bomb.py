@@ -16,7 +16,7 @@ def check_bound(rct: pg.Rect) -> tuple[bool,bool]:
     yoko, tate = True, True
     if rct.left < 0 or WIDTH <rct.right:
         yoko = False
-    if rct.left < 0 or HEIGHT <rct.bottom:
+    if rct.top < 0 or HEIGHT <rct.bottom:
         tate = False
     return yoko,tate
 def main():
@@ -40,6 +40,8 @@ def main():
             if event.type == pg.QUIT: 
                 return
         screen.blit(bg_img, [0, 0]) 
+        if kk_rct.colliderect(bb_rct):
+            return #  ゲームオーバー
 
         key_lst = pg.key.get_pressed()
         sum_mv = [0, 0]
