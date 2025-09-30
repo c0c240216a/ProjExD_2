@@ -12,7 +12,7 @@ DELTA={
     pg.K_RIGHT:(5,0),
 }
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-def gameover(screen:pg.Surface) -> None:
+def gameover(screen:pg.Surface) -> None:  #gameoverの定義
     go_img=pg.Surface((WIDTH,HEIGHT))
     pg.draw.rect(go_img,(0,0,0),pg.Rect(0,0,WIDTH,HEIGHT))
     font=pg.font.Font(None,80)
@@ -43,7 +43,7 @@ def check_bound(rct: pg.Rect) -> tuple[bool,bool]:
     return yoko,tate
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
-    screen = pg.display.set_mode((WIDTH, HEIGHT))
+    screen = pg.display.set_mode((WIDTH, HEIGHT))  #
     bg_img = pg.image.load("fig/pg_bg.jpg")    
     kk_img = pg.transform.rotozoom(pg.image.load("fig/3.png"), 0, 0.9)
     kk_rct = kk_img.get_rect()
